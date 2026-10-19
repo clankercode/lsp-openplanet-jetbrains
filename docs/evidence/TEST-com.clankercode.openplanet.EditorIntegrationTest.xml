@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.clankercode.openplanet.EditorIntegrationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:33:56.903Z" hostname="xsm" time="7.785">
+  <properties />
+  <testcase name="testFactoryUsesLsp4ijAndEmptyInitializationOptions" classname="com.clankercode.openplanet.EditorIntegrationTest" time="4.339" />
+  <testcase name="testConfigMarkerAndUnmarkedSingleFileFallback" classname="com.clankercode.openplanet.EditorIntegrationTest" time="0.462" />
+  <testcase name="testWorkspaceStrategyKeepsInitialRootsAndSelectsEachPlugin" classname="com.clankercode.openplanet.EditorIntegrationTest" time="0.243" />
+  <testcase name="testWorkspaceStrategyAllowsDynamicPluginRoots" classname="com.clankercode.openplanet.EditorIntegrationTest" time="0.148" />
+  <testcase name="testAngelScriptPsiAndSyntaxAreRegistered" classname="com.clankercode.openplanet.EditorIntegrationTest" time="2.304" />
+  <testcase name="testOrdinaryTomlIsNotTakenOver" classname="com.clankercode.openplanet.EditorIntegrationTest" time="0.288" />
+  </testsuite>

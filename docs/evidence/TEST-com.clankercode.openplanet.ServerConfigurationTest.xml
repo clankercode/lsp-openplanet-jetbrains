@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.clankercode.openplanet.ServerConfigurationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:34:04.693Z" hostname="xsm" time="0.022">
+  <properties />
+  <testcase name="onlyExactManifestMatches" classname="com.clankercode.openplanet.ServerConfigurationTest" time="0.011" />
+  <testcase name="usesStdioAndNeverShellSplitsPaths" classname="com.clankercode.openplanet.ServerConfigurationTest" time="0.002" />
+  <testcase name="rejectsInvalidJsonShapesAndCamelCase" classname="com.clankercode.openplanet.ServerConfigurationTest" time="0.005" />
+  <testcase name="explicitMissingOrRelativeExecutableFailsWithoutFallback" classname="com.clankercode.openplanet.ServerConfigurationTest" time="0.002" />
+  <testcase name="defaultsInheritAndExplicitOptionsAreRetained" classname="com.clankercode.openplanet.ServerConfigurationTest" time="0.002" />
+  </testsuite>

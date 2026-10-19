@@ -32,7 +32,7 @@ GRADLE_USER_HOME=/tmp/openplanet-jetbrains-gradle \
   -PlocalIde=/tmp/openplanet-jetbrains-ide test buildPlugin
 ```
 
-Regression history: the initial 12-test run failed exactly the new dynamic workspace-root test (11 passed). The lazy strategy fix exposed a second regression test using IntelliJ's in-memory VFS: a `java.nio.file.Files` root lookup ignored virtual marker files. The implementation now discovers markers through IntelliJ VFS and preserves initial project roots while allowing dynamic plugin roots. Final results are recorded below after completion.
+Regression history: the initial 12-test run failed exactly the new dynamic workspace-root test (11 passed). The lazy strategy fix exposed a second regression test using IntelliJ's in-memory VFS: a `java.nio.file.Files` root lookup ignored virtual marker files. The implementation now discovers markers through IntelliJ VFS and preserves initial project roots while allowing dynamic plugin roots. Final run: **13 tests, 0 failures, 0 skipped**, followed by **BUILD SUCCESSFUL** in 58 seconds. Raw JUnit results and build output are in `docs/evidence/`. The ZIP contains only our two JARs; full Unlicense, CC0 and Gradle license texts are included in the main JAR.
 
 ## Actual editor observations
 
@@ -45,3 +45,13 @@ A transparent test-only stdio relay records traffic while invoking the installed
 Only Linux x86_64 and IntelliJ Community 2024.3.6 were exercised. Windows/macOS, other JetBrains products, platform builds outside 243.*, remote filesystems and npm `.cmd` launchers are untested. This plugin therefore declares only `243.*` compatibility. A full JetBrains Plugin Verifier product matrix has not been run. Completion/navigation/signature features are provided by LSP4IJ but are not all asserted end-to-end. No Marketplace upload was attempted; an account is required (see publishing.md).
 
 The initial IDE startup emitted a platform HiDPI preload warning before our plugin was installed, plus bundled-plugin warnings and host fontconfig warnings. These are recorded as environment noise, not suppressed or attributed to this integration. Gradle warns that 2.5.0 has newer versions; the pinned build remains intentional and reproducible.
+
+## Final artifact
+
+`build/distributions/openplanet-jetbrains-0.1.0.zip` SHA-256: `7f01f39b80e7835e816a068d9b2569fa0c7d56a25dca545d49712586767de0fd`. The final packaged ZIP was extracted into the temporary IDE profile for the screenshot run.
+
+Final GUI mapping check: opened `Main.as`, `info.toml`, and `unrelated.toml` in the packaged plugin. Raw client traffic contains `didOpen` for AngelScript and `info.toml` as `toml`, and none for `unrelated.toml`. The unrelated file retained the IDE TOML file type and highlighting.
+
+## Screenshot
+
+[`images/intellij-diagnostics.png`](images/intellij-diagnostics.png) is a direct capture of the final package running in the actual IDE. The private window was resized to **1400×760** before capture to keep the source and Problems entry together. The image was inspected at full size and with code/diagnostic crops; the file was validated with Pillow. No editor facsimile, overlays or synthetic diagnostics were used.

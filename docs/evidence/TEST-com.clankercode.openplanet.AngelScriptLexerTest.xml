@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.clankercode.openplanet.AngelScriptLexerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-19T07:33:56.767Z" hostname="xsm" time="0.044">
+  <properties />
+  <testcase name="losslessAndRestartableAtEveryTokenBoundary" classname="com.clankercode.openplanet.AngelScriptLexerTest" time="0.042" />
+  <testcase name="highlightsLiteralsCommentsAndPreprocessor" classname="com.clankercode.openplanet.AngelScriptLexerTest" time="0.0" />
+  </testsuite>

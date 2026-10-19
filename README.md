@@ -8,6 +8,10 @@ AngelScript editing for [Openplanet](https://openplanet.dev) using [openplanet-l
 - Nearest `info.toml` / `.openplanet-lsp.toml` workspace roots, project and single-file fallbacks.
 - Explicit executable path and JSON initialization options under **Settings → Languages & Frameworks → Openplanet**.
 
+![Real IntelliJ Community diagnostics from openplanet-lsp](docs/images/intellij-diagnostics.png)
+
+Real IntelliJ Community 2024.3.6 with LSP4IJ 0.21.0 and openplanet-lsp 0.8.0; the example contains one intentional undefined helper.
+
 ## Install
 
 1. Use IntelliJ IDEA **2024.3.x** (Community supported). Install **LSP4IJ 0.21.0** from Settings → Plugins → Marketplace; restart if asked. This first release intentionally declares platform build `243.*` only. Other JetBrains products and newer platform builds have not been verified.
