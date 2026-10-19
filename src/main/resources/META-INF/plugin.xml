@@ -1,0 +1,22 @@
+<idea-plugin>
+  <id>com.clankercode.openplanet</id>
+  <name>Openplanet</name>
+  <vendor url="https://github.com/clankercode">clankercode</vendor>
+  <description><![CDATA[AngelScript editing for Openplanet with syntax highlighting and openplanet-lsp via LSP4IJ. Install openplanet-lsp separately. Configure its executable under Settings → Languages &amp; Frameworks → Openplanet. Supports .as source and selectively maps info.toml without taking over TOML files.]]></description>
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.redhat.devtools.lsp4ij</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <fileType name="Openplanet AngelScript" language="OpenplanetAngelScript" implementationClass="com.clankercode.openplanet.AngelScriptFileType" fieldName="INSTANCE" extensions="as"/>
+    <lang.parserDefinition language="OpenplanetAngelScript" implementationClass="com.clankercode.openplanet.AngelScriptParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="OpenplanetAngelScript" implementationClass="com.clankercode.openplanet.AngelScriptHighlighterFactory"/>
+    <applicationService serviceImplementation="com.clankercode.openplanet.OpenplanetSettings"/>
+    <applicationConfigurable parentId="language" id="com.clankercode.openplanet.settings" displayName="Openplanet" instance="com.clankercode.openplanet.OpenplanetConfigurable"/>
+    <lang.foldingBuilder language="OpenplanetAngelScript" implementationClass="com.redhat.devtools.lsp4ij.features.foldingRange.LSPFoldingRangeBuilder"/>
+    <codeInsight.parameterInfo language="OpenplanetAngelScript" implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
+  </extensions>
+  <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+    <server id="openplanet" name="Openplanet" factoryClass="com.clankercode.openplanet.OpenplanetServerFactory"/>
+    <languageMapping language="OpenplanetAngelScript" languageId="angelscript" serverId="openplanet"/>
+    <fileNamePatternMapping patterns="info.toml" languageId="toml" serverId="openplanet" documentMatcher="com.clankercode.openplanet.ManifestMatcher"/>
+  </extensions>
+</idea-plugin>
