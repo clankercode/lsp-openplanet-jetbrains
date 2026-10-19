@@ -20,10 +20,12 @@ dependencies {
 }
 java { toolchain.languageVersion.set(JavaLanguageVersion.of(21)) }
 tasks.withType<JavaCompile>().configureEach { options.release.set(21); options.encoding = "UTF-8" }
-tasks.withType<Test>().configureEach { maxParallelForks = 1; maxHeapSize = "768m" }
+tasks.withType<Test>().configureEach { maxParallelForks = 1; maxHeapSize = "768m"; jvmArgs("-XX:ActiveProcessorCount=2") }
 intellijPlatform {
     pluginConfiguration {
         ideaVersion { sinceBuild = "243"; untilBuild = "243.*" }
     }
 }
-tasks.jar { from("LICENSE", "LICENSE-CC0", "THIRD_PARTY_NOTICES.md") { into("META-INF") } }
+tasks.jar { from(listOf("LICENSE", "LICENSE-CC0", "THIRD_PARTY_NOTICES.md", "third-party")) { into("META-INF") } }
+
+tasks.withType<JavaExec>().configureEach { jvmArgs("-XX:ActiveProcessorCount=2") }

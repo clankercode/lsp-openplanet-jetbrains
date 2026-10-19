@@ -16,6 +16,9 @@ public class EditorIntegrationTest extends BasePlatformTestCase {
         var manifest=myFixture.addFileToProject("info.toml","[meta]\nname=\"Example\"");
         assertTrue(new ManifestMatcher().match(manifest.getVirtualFile(),getProject()));
     }
+    public void testWorkspaceStrategyAllowsDynamicPluginRoots() {
+        assertFalse(new OpenplanetWorkspaceStrategy().sendAllFoldersOnInitialization());
+    }
     public void testFactoryUsesLsp4ijAndEmptyInitializationOptions() {
         OpenplanetSettings.getInstance().serverPath=""; OpenplanetSettings.getInstance().initializationOptions="";
         LanguageServerFactory factory=new OpenplanetServerFactory(); var provider=factory.createConnectionProvider(getProject());
