@@ -1,6 +1,6 @@
 // Original minimal Openplanet example for editor integration verification.
-// The mistakes below are intentional: inspect their live LSP diagnostics.
+// The missing helper below is intentional: inspect its live LSP diagnostic.
 void Main() {
-    uint laps = "three";
+    uint laps = 3;
     MissingFunction(laps);
 }
